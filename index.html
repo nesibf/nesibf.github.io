@@ -1,41 +1,126 @@
+<!--
+  Follow the instructions written in comments to create your stunning portfolio
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AZIIR</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="./images/aziir_logo.jpeg" />
+
+    <!-- Put your site title here -->
+    <title>
+        AZIIR | Engineering Managment | Cloud native Applications | CKS, CKA & CKAD | DevOps&SRE Advocacy
+    </title>
+
+    <meta name="description"
+        content="Engineering Managment, Platform Lead, More than 17 years of experience in Software Engineering | Cloud native ">
+    <!-- Add some coding keywords below, Ex: (React, CSS etc) -->
+    <meta name="keywords"
+        content="Cloud Native , Leadership , .NET , C# , DevOps , CKA , Kubernetes , Docker , Business Analysis , Product Manager, Product Owner , Scrum Master , Containers" />
+    <link rel="stylesheet" href="index.css" />
+
+    <script>
+        fbq('track', 'ViewContent');
+    </script>
+
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <h1>AZIIR</h1>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
+
+    <!-- ***** Header ***** -->
+
+    <header class="header" role="banner" id="top">
+        <div class="row">
+            <nav class="nav" role="navigation">
+                <ul class="nav__items">
+                    <li class="nav__item"><a href="#workhistory" class="nav__link">Work History</a></li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">About</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Contact</a>
+                    </li>
                 </ul>
             </nav>
         </div>
+        <div class="header__text-box row">
+            <div class="header__text">
+                <h1 class="heading-primary">
+                    <!-- Replace the following name with your name -->
+                    <span>AZIIR</span>
+                </h1>
+                <!-- Put a small paragraph about yourself -->
+                <p>
+                    Engineering Management | SRE | Cloud Platforms | DevOps Advocacy
+                </p>
+
+                <a href="#contact" class="btn btn--pink">Get in touch</a>
+            </div>
+        </div>
     </header>
 
-    <section id="hero">
-        <div class="container">
-            <h2>Welcome to AZIIR</h2>
-            <p>Your destination for innovation and quality.</p>
-            <a href="#" class="btn">Learn More</a>
+    <main role="main">
+
+        <!-- ***** About ***** -->
+
+        <section class="about" id="about">
+            <div class="row">
+                <h2>About</h2>
+                <div class="about__content">
+                    <div class="about__text">
+                        <!-- Replace the below paragraph with info about yourself -->
+                        <p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ***** Contact ***** -->
+
+    <section class="contact" id="contact">
+        <div class="row">
+            <h2>Get in Touch</h2>
+            <div class="contact__info">
+                <p>
+                    Are you looking for any kind of
+                    consultation? or want to ask questions? or have some advice for me
+                    or just want to say "Hi 👋" in any case feel free to Let me know. I
+                    will do my best to respond back. 😊 The quickest way to reach out to
+                    me is via an email.
+                </p>
+                <!-- Replace the email with yours -->
+                <a href="mailto:nesibf@hotmail.com" class="btn">nesibf@hotmail.com</a>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 AZIIR. All rights reserved.</p>
+    <!-- ***** Footer ***** -->
+
+    <footer role="contentinfo" class="footer">
+        <div class="row">
+            <!-- Update the links to point to your accounts -->
+            <ul class="footer__social-links">
+                <li class="footer__social-link-item">
+                    <a href="https://www.linkedin.com/company/aziir" target="_blank">
+                        <img src="./images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image"
+                            alt="Linkedin">
+                    </a>
+                </li>
+            </ul>
+
+
         </div>
     </footer>
+
+    <a href="#top" class="back-to-top" title="Back to Top">
+        <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image" />
+    </a>
+    <script src="./index.js"></script>
 </body>
 
 </html>
