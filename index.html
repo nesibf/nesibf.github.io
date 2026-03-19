@@ -1,85 +1,378 @@
-<!DOCTYPE html>
-<html lang="en">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap');
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/png" href="./images/aziir_logo.jpeg" />
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+  }
 
-    <title>DevOps Advocacy</title>
+  :root {
+    --az-black: #0a0a0a;
+    --az-white: #f5f2eb;
+    --az-accent: #00e5a0;
+    --az-dim: #1a1a1a;
+    --az-muted: #2e2e2e;
+    --az-text: #c8c4bb;
+  }
 
-    <meta name="description"
-        content="Engineering Managment, Platform Lead, More than 17 years of experience in Software Engineering | Cloud native ">
-    <meta name="keywords" content="Cloud Native, Leadership, DevOps, K8s, Docker, Containers" />
-    <link rel="stylesheet" href="index.css" />
+  body {
+    background: transparent
+  }
 
-    <script>
-        fbq('track', 'ViewContent');
-    </script>
-</head>
+  .wrap {
+    background: var(--az-black);
+    color: var(--az-white);
+    font-family: 'Syne', sans-serif;
+    min-height: 480px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    padding: 0;
+  }
 
-<body>
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 229, 160, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 160, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
 
-    <!-- ***** Header ***** -->
-    <header class="header" role="banner" id="top">
-        <div class="row">
-            <nav class="nav" role="navigation">
-                <ul class="nav__items">
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="header__text-box row">
-            <div class="header__text">
-                <h1 class="heading-primary">
-                    <span>Nesib Fišo</span>
-                </h1>
-                <p>
-                    Engineering Management | SRE | Cloud Platforms | DevOps Advocacy
-                </p>
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 28px 0;
+    position: relative;
+    z-index: 2;
+  }
 
-                <a href="#contact" class="btn btn--pink">Get in touch</a>
-            </div>
-        </div>
-    </header>
+  .logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--az-white);
+  }
 
-    <main role="main"></main>
+  .logo span {
+    color: var(--az-accent)
+  }
 
-    <!-- ***** Contact ***** -->
-    <section class="contact" id="contact">
-        <div class="row">
-            <h2>Get in Touch</h2>
-            <div class="contact__info">
-                <p>
-                    Are you looking for any kind of
-                    consultation? or want to ask questions? or have some advice for me
-                    or just want to say "Hi 👋" in any case feel free to Let me know. I
-                    will do my best to respond back. 😊 The quickest way to reach out to
-                    me is via an email.
-                </p>
-                <a href="mailto:nesibf@hotmail.com" class="btn">nesibf@hotmail.com</a>
-            </div>
-        </div>
-    </section>
+  .badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--az-accent);
+    border: 1px solid rgba(0, 229, 160, 0.4);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
 
-    <!-- ***** Footer ***** -->
-    <footer role="contentinfo" class="footer">
-        <div class="row">
-            <ul class="footer__social-links">
-                <li class="footer__social-link-item">
-                    <a href="https://www.linkedin.com/in/nesib-fiso" target="_blank">
-                        <img src="./images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image"
-                            alt="Linkedin">
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </footer>
+  .hero {
+    padding: 36px 28px 0;
+    position: relative;
+    z-index: 2;
+  }
 
-  <a href="#top" class="back-to-top" title="Back to Top">
-        <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image" />
-    </a>
-    <script src="./index.js"></script>
-</body>
+  .tagline {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--az-accent);
+    text-transform: uppercase;
+    font-family: 'Space Mono', monospace;
+    margin-bottom: 12px;
+  }
 
-</html>
+  h1 {
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--az-white);
+    max-width: 520px;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--az-accent);
+  }
+
+  .sub {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--az-text);
+    max-width: 420px;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  .services {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    padding: 0 28px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--az-dim);
+    border: 0.5px solid var(--az-muted);
+    border-radius: 999px;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--az-text);
+    transition: border-color .2s, color .2s;
+    cursor: default;
+  }
+
+  .pill:hover {
+    border-color: var(--az-accent);
+    color: var(--az-white)
+  }
+
+  .pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--az-accent);
+    flex-shrink: 0
+  }
+
+  .terminal {
+    margin: 28px 28px 0;
+    background: var(--az-dim);
+    border: 0.5px solid var(--az-muted);
+    border-radius: 10px;
+    padding: 14px 18px;
+    position: relative;
+    z-index: 2;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .t-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .dot-r,
+  .dot-y,
+  .dot-g {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%
+  }
+
+  .dot-r {
+    background: #ff5f56
+  }
+
+  .dot-y {
+    background: #ffbd2e
+  }
+
+  .dot-g {
+    background: #27c93f
+  }
+
+  .t-line {
+    font-size: 11px;
+    line-height: 1.8;
+    color: #888
+  }
+
+  .t-line .cmd {
+    color: var(--az-accent)
+  }
+
+  .t-line .ok {
+    color: #27c93f
+  }
+
+  .t-line .dim {
+    color: #555
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 24px 28px 28px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn-main {
+    background: var(--az-accent);
+    color: #000;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity .15s, transform .1s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-main:hover {
+    opacity: .88;
+    transform: scale(1.02)
+  }
+
+  .email {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--az-text);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(200, 196, 187, 0.25);
+    padding-bottom: 1px;
+    transition: color .2s;
+  }
+
+  .email:hover {
+    color: var(--az-accent)
+  }
+
+  .deco {
+    position: absolute;
+    right: -40px;
+    top: 40px;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(0, 229, 160, 0.08);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .deco2 {
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    width: 140px;
+    height: 140px;
+    border: 1px solid rgba(0, 229, 160, 0.06);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 0;
+    border-top: 0.5px solid var(--az-muted);
+    margin: 0 28px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .stat {
+    flex: 1;
+    padding: 14px 0 10px;
+    border-right: 0.5px solid var(--az-muted);
+  }
+
+  .stat:last-child {
+    border-right: none
+  }
+
+  .stat-n {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--az-white);
+    line-height: 1
+  }
+
+  .stat-l {
+    font-size: 10px;
+    color: var(--az-text);
+    margin-top: 3px;
+    letter-spacing: 0.06em;
+    font-family: 'Space Mono', monospace
+  }
+
+  .stat-row .stat:not(:first-child) {
+    padding-left: 16px
+  }
+</style>
+<div class="wrap">
+  <div class="grid-bg"></div>
+  <div class="deco"></div>
+  <div class="deco2"></div>
+
+  <div class="top-bar">
+    <div class="logo">AZ<span>II</span>R</div>
+    <div class="badge">DEVOPS &amp; CLOUD</div>
+  </div>
+
+  <div class="hero">
+    <div class="tagline">Engineering Management · SRE · MLOps · Cloud Platforms</div>
+    <h1>Infrastruktura koja<br><em>ne pada</em> — nikad.</h1>
+    <p class="sub">Expert consultations in DevOps, MLOps, Cloud architecture and Site Reliability Engineering. Your
+      system,
+      our responsibility.</p>
+  </div>
+
+  <div class="services">
+    <div class="pill"><span class="dot"></span>DevOps</div>
+    <div class="pill"><span class="dot"></span>MLOps</div>
+    <div class="pill"><span class="dot"></span>Cloud Platforms</div>
+    <div class="pill"><span class="dot"></span>SRE</div>
+    <div class="pill"><span class="dot"></span>Engineering Mgmt</div>
+    <div class="pill"><span class="dot"></span>Consultations</div>
+  </div>
+
+  <div class="terminal">
+    <div class="t-header">
+      <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+    </div>
+    <div class="t-line"><span class="dim">$ </span><span class="cmd">aziir --status production</span></div>
+    <div class="t-line"><span class="ok">✓</span> Uptime: 99.98% · Latency: 12ms</div>
+    <div class="t-line"><span class="ok">✓</span> Infrastructure: scalable and secure</div>
+    <div class="t-line"><span class="dim">$ </span><span class="cmd">aziir --contact</span><span id="blink"
+        style="color:var(--az-accent)">█</span></div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-n">99.9<span style="font-size:13px;color:var(--az-accent)">%</span></div>
+      <div class="stat-l">Uptime SLA</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">Cloud<span style="font-size:13px;color:var(--az-accent)">☁</span></div>
+      <div class="stat-l">Native</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">24/7<span style="font-size:13px;color:var(--az-accent)">⚡</span></div>
+      <div class="stat-l">Dostupnost</div>
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn-main" href="https://nesibf.github.io/#contact" target="_blank">Contact Us ↗</a>
+    <a class="email" href="mailto:nesibf@hotmail.com">nesibf@hotmail.com</a>
+  </div>
+</div>
+<script>
+  let v = true;
+  setInterval(() => {
+    const b = document.getElementById('blink');
+    if (b) { b.style.opacity = v ? '0' : '1'; v = !v; }
+  }, 530);
+</script>
